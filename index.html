@@ -7,8 +7,26 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script>
     const root = document.getElementById("root");
-    const span = React.createElement("span", null, "Hello I'm a span");
-    const btn = React.createElement("button", null, "Click me");
-    ReactDOM.render(span, root); // 사용자에게 보여준다.
+    const h3 = React.createElement(
+      "h3",
+      {
+        id: "title",
+        onMouseEnter: () => console.log("mouse enter"),
+      },
+      "Hello I'm a span"
+    );
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => console.log("im clicked"),
+        style: {
+          backgroundColor: "tomato",
+        },
+      },
+      "Click me"
+    );
+    // html 태그, 이벤트, 화면출력
+    const container = React.createElement("div", null, [h3, btn]);
+    ReactDOM.render(container, root); // 사용자에게 보여준다.
   </script>
 </html>
